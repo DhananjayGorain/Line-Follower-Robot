@@ -10,7 +10,7 @@ The solution involves using an 8051 microcontroller to control two DC motors bas
 
 The code implements the following functions:
 
-1.move_forward(): Both motors move the robot forward.
-2.take_left_turn(): The right motor is active, while the left motor stops, causing the robot to turn left.
-3.take_right_turn(): The left motor is active, while the right motor stops, causing the robot to turn right.
+1.move_forward(): Both motors move the robot forward.<br>
+2.take_left_turn(): The right motor is active, while the left motor stops, causing the robot to turn left.<br>
+3.take_right_turn(): The left motor is active, while the right motor stops, causing the robot to turn right.<br>
 The continuous loop ensures the robot constantly checks the sensors' status and adjusts its movement in real-time, allowing it to effectively follow the line on the surface.

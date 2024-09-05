@@ -1,0 +1,39 @@
+#inculde<8051.h>
+//function for forward move
+void move_forward(void) 
+{ 
+P0_0=1; //for left side motor,connected to 1st pin of motor connector 1.
+P0_1=1; //for left side motor,connected to 2nd pin of motor connector 1.
+P0_2=1; //for right side motor,connected to 1st pin of motor connector 2.
+P0_3=1; //for right side motor,connected to 2nd pin of motor connector 2.
+}
+//function for left turn
+void take_left_turn(void) 
+{ 
+P0_0=0; //Stop the left side motor connected to motor connector 1.
+P0_1=0; P0_2=1; //let the right motor move forward so that robot will take left turn.
+}
+//function for right turn
+void take_right_turn(void) 
+{ 
+P0_0=1; //let the left motor move forward so that robot will take right turn.
+P0_1=0; P0_2=0; //Stop the right side motor connected to motor connector 2.
+}
+int main() 
+{ 
+P2_7=1; // make sensor connector 1 as input pin which will act as left sensor.
+P2_6=1; //make sonsor connector 2 as input pin which will act as right sensor.
+// while loop is used for continuous checking of sensor's input.
+while (1)
+{ 
+if(P2_7==0 && P2_6==0) // check both sensors and if condition meets then call 
+ //move_forward() function.
+move_forward(); 
+if(P2_7==1 && P2_6==0) // check both sensors and if condition meets then call 
+ // take_left_turn() function.
+take_left_turn(); 
+if(P2_7==0 && P2_6==1) // check both sensors and if condition meets then call 
+ // take_right_turn() function.
+take_right_turn(); 
+} 
+}
